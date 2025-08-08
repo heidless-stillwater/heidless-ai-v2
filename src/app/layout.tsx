@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
-import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Lato, Montserrat } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -18,6 +19,7 @@ const lato = Lato({
   variable: '--font-lato',
   weight: ['400', '700'],
 });
+
 
 export const metadata: Metadata = {
   title: 'heidless ai',
@@ -37,19 +39,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={cn('font-body antialiased min-h-screen flex flex-col', montserrat.variable, lato.variable)}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
+    <html lang="en" suppressHydrationWarning>
+       <body className={cn('font-body antialiased min-h-screen flex flex-col', montserrat.variable, lato.variable)}>
+        <ThemeProvider>
+          <TooltipProvider>
             <Header />
             <main className="flex-grow">{children}</main>
             <Footer />
             <Toaster />
-          </ThemeProvider>
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

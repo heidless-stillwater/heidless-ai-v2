@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -13,15 +12,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuPortal,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { ThemeToggle } from './theme-toggle';
+import { ThemeSwitcher } from './theme-switcher';
 
 
 const navLinks = [
@@ -184,7 +183,7 @@ export function Header() {
         <Logo />
         {isClient && isDesktop && desktopNav}
         <div className="flex items-center gap-2 sm:gap-4">
-          <ThemeToggle />
+          <ThemeSwitcher />
           {isClient && isDesktop && (
             <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/pricing">Start Here</Link>
