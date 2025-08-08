@@ -19,3 +19,4 @@ import '@/ai/flows/nutrition-assistant-flow.ts';
 import '@/ai/flows/workout-plan-flow.ts';
 import '@/ai/schemas/track-progress-schema';
 import '@/ai/schemas/workout-plan-schema';
+import '@/ai/flows/custom-site-generator-flow.ts';

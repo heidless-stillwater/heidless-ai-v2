@@ -131,6 +131,7 @@ export function Header() {
       {navLinks.map((link) => (
         <NavLink key={link.href} {...link} />
       ))}
+      <NavLink href="/custom-site-generator" label="Site Generator" />
       <NavLink href="/tools" label="Tools" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -159,6 +160,7 @@ export function Header() {
         {navLinks.map((link) => (
           <NavLink key={link.href} {...link} className="text-lg" />
         ))}
+        <NavLink href="/custom-site-generator" label="Site Generator" className="text-lg" />
         <NavLink href="/tools" label="Tools" className="text-lg" />
          <DropdownMenu>
             <DropdownMenuTrigger asChild>
