@@ -170,22 +170,22 @@ export function CustomSiteGeneratorForm() {
                                     height={400}
                                     className="w-full h-auto object-cover"
                                 />
-                                <div className="absolute top-2 right-2 flex items-center bg-background/80 p-2 rounded-md">
-                                     <Checkbox
-                                        id={`select-${template.name}`}
-                                        onCheckedChange={(checked) => handleSelectTemplate(template.name, !!checked)}
-                                        checked={selectedTemplates.has(template.name)}
-                                    />
-                                    <label htmlFor={`select-${template.name}`} className="ml-2 text-sm font-medium">Select</label>
-                                </div>
                             </CardHeader>
                             <CardContent className="p-4 flex-grow">
                                 <CardTitle className="text-lg font-headline">{template.name}</CardTitle>
                                 <Badge variant="outline" className="mt-1">{template.category}</Badge>
                                 <CardDescription className="mt-2 text-sm">{template.description}</CardDescription>
                             </CardContent>
-                            <CardFooter className="p-4 pt-0">
-                                <Button asChild variant="outline" className="w-full">
+                            <CardFooter className="p-4 pt-0 flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                     <Checkbox
+                                        id={`select-${template.name}`}
+                                        onCheckedChange={(checked) => handleSelectTemplate(template.name, !!checked)}
+                                        checked={selectedTemplates.has(template.name)}
+                                    />
+                                    <label htmlFor={`select-${template.name}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Select</label>
+                                </div>
+                                <Button asChild variant="outline">
                                     <Link href={template.url} target="_blank" rel="noopener noreferrer">
                                         Visit Demo <ExternalLink className="ml-2 h-4 w-4" />
                                     </Link>
