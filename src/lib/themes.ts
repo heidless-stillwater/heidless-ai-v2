@@ -66,6 +66,13 @@ export const bespokeThemes: ThemeDefinition[] = [
     light: { '--background': '120 100% 98%', '--foreground': '210 10% 23%', '--card': '0 0% 100%', '--card-foreground': '210 10% 23%', '--popover': '0 0% 100%', '--popover-foreground': '210 10% 23%', '--primary': '134 61% 40%', '--primary-foreground': '0 0% 100%', '--secondary': '208 7% 48%', '--secondary-foreground': '0 0% 100%', '--muted': '208 7% 48%', '--muted-foreground': '208 7% 30%', '--accent': '211 100% 50%', '--accent-foreground': '0 0% 100%', '--destructive': '354 70% 54%', '--destructive-foreground': '0 0% 100%', '--border': '208 7% 48%', '--input': '208 7% 48%', '--ring': '134 61% 40%', },
     dark: { '--background': '210 10% 15%', '--foreground': '120 100% 98%', '--card': '210 10% 20%', '--card-foreground': '120 100% 98%', '--popover': '210 10% 20%', '--popover-foreground': '120 100% 98%', '--primary': '134 61% 50%', '--primary-foreground': '0 0% 100%', '--secondary': '208 7% 35%', '--secondary-foreground': '0 0% 100%', '--muted': '208 7% 35%', '--muted-foreground': '208 7% 60%', '--accent': '211 100% 60%', '--accent-foreground': '0 0% 100%', '--destructive': '354 70% 54%', '--destructive-foreground': '0 0% 100%', '--border': '208 7% 35%', '--input': '208 7% 35%', '--ring': '134 61% 50%', },
   },
+  {
+    name: 'SparkLink Electric',
+    category: 'bespokeThemes',
+    swatchColor: '195 85% 41%',
+    light: { '--background': '220 13% 96%', '--foreground': '220 9% 10%', '--card': '220 13% 96%', '--card-foreground': '220 9% 10%', '--popover': '220 13% 96%', '--popover-foreground': '220 9% 10%', '--primary': '195 85% 41%', '--primary-foreground': '356 100% 97%', '--secondary': '220 13% 91%', '--secondary-foreground': '220 9% 10%', '--muted': '220 13% 91%', '--muted-foreground': '220 9% 45%', '--accent': '38 92% 50%', '--accent-foreground': '38 92% 5%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '220 13% 88%', '--input': '220 13% 88%', '--ring': '195 85% 41%', },
+    dark: { '--background': '220 9% 10%', '--foreground': '220 13% 96%', '--card': '220 9% 10%', '--card-foreground': '220 13% 96%', '--popover': '220 9% 10%', '--popover-foreground': '220 13% 96%', '--primary': '195 85% 41%', '--primary-foreground': '356 100% 97%', '--secondary': '220 13% 15%', '--secondary-foreground': '220 13% 96%', '--muted': '220 13% 15%', '--muted-foreground': '220 9% 55%', '--accent': '38 92% 50%', '--accent-foreground': '38 92% 5%', '--destructive': '0 62.8% 30.6%', '--destructive-foreground': '0 0% 98%', '--border': '220 13% 20%', '--input': '220 13% 20%', '--ring': '195 85% 41%', },
+  },
 ];
 
 export const primaryColorsThemes: ThemeDefinition[] = [
@@ -219,6 +226,34 @@ export const customThemes: ThemeDefinition[] = [
       swatchColor: '217 91% 60%',
       light: { '--background': '197 78% 94%', '--foreground': '222.2 47.4% 11.2%', '--card': '0 0% 100%', '--card-foreground': '222.2 47.4% 11.2%', '--popover': '0 0% 100%', '--popover-foreground': '222.2 47.4% 11.2%', '--primary': '197 78% 52%', '--primary-foreground': '0 0% 100%', '--secondary': '197 50% 90%', '--secondary-foreground': '222.2 47.4% 11.2%', '--muted': '197 50% 90%', '--muted-foreground': '215.4 16.3% 46.9%', '--accent': '180 100% 25.1%', '--accent-foreground': '0 0% 100%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '197 50% 88%', '--input': '197 50% 88%', '--ring': '197 78% 52%', },
       dark: { '--background': '222.2 47.4% 11.2%', '--foreground': '210 40% 98%', '--card': '222.2 47.4% 11.2%', '--card-foreground': '210 40% 98%', '--popover': '222.2 47.4% 11.2%', '--popover-foreground': '210 40% 98%', '--primary': '197 78% 52%', '--primary-foreground': '0 0% 100%', '--secondary': '217.2 32.6% 17.5%', '--secondary-foreground': '210 40% 98%', '--muted': '217.2 32.6% 17.5%', '--muted-foreground': '215 20.2% 65.1%', '--accent': '180 100% 35.1%', '--accent-foreground': '0 0% 100%', '--destructive': '0 62.8% 30.6%', '--destructive-foreground': '210 40% 98%', '--border': '217.2 32.6% 17.5%', '--input': '217.2 32.6% 17.5%', '--ring': '197 78% 52%', },
+    },
+    {
+      name: 'Oceanic Teal',
+      category: 'customThemes',
+      swatchColor: '217 91% 60%',
+      light: { '--background': '210 40% 96.1%', '--foreground': '210 25% 28%', '--card': '210 40% 96.1%', '--card-foreground': '210 25% 28%', '--popover': '210 40% 96.1%', '--popover-foreground': '210 25% 28%', '--primary': '207 68% 52%', '--primary-foreground': '210 14% 96%', '--secondary': '0 0% 49%', '--secondary-foreground': '0 0% 98%', '--muted': '210 40% 90%', '--muted-foreground': '215.4 16.3% 46.9%', '--accent': '142 95% 30%', '--accent-foreground': '0 0% 98%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '210 40% 80%', '--input': '210 40% 85%', '--ring': '207 68% 52%', },
+      dark: { '--background': '201 100% 14%', '--foreground': '210 14% 96%', '--card': '210 29% 15%', '--card-foreground': '210 14% 96%', '--popover': '210 29% 15%', '--popover-foreground': '210 14% 96%', '--primary': '207 68% 52%', '--primary-foreground': '210 14% 96%', '--secondary': '0 0% 49%', '--secondary-foreground': '0 0% 98%', '--muted': '210 29% 18%', '--muted-foreground': '215.4 16.3% 56.9%', '--accent': '142 95% 30%', '--accent-foreground': '0 0% 98%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '210 29% 25%', '--input': '210 29% 25%', '--ring': '207 68% 52%', },
+    },
+    {
+      name: 'Azure Mist',
+      category: 'customThemes',
+      swatchColor: '217 91% 60%',
+      light: { '--background': '210 40% 96.1%', '--foreground': '210 25% 28%', '--card': '210 40% 96.1%', '--card-foreground': '210 25% 28%', '--popover': '210 40% 96.1%', '--popover-foreground': '210 25% 28%', '--primary': '207 68% 52%', '--primary-foreground': '210 14% 96%', '--secondary': '0 0% 49%', '--secondary-foreground': '0 0% 98%', '--muted': '210 40% 90%', '--muted-foreground': '215.4 16.3% 46.9%', '--accent': '142 95% 30%', '--accent-foreground': '0 0% 98%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '210 40% 80%', '--input': '210 40% 85%', '--ring': '207 68% 52%', },
+      dark: { '--background': '208 29% 10%', '--foreground': '210 14% 96%', '--card': '210 29% 15%', '--card-foreground': '210 14% 96%', '--popover': '210 29% 15%', '--popover-foreground': '210 14% 96%', '--primary': '207 68% 52%', '--primary-foreground': '210 14% 96%', '--secondary': '0 0% 49%', '--secondary-foreground': '0 0% 98%', '--muted': '210 29% 18%', '--muted-foreground': '215.4 16.3% 56.9%', '--accent': '142 95% 30%', '--accent-foreground': '0 0% 98%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '210 29% 25%', '--input': '210 29% 25%', '--ring': '207 68% 52%', },
+    },
+    {
+      name: 'Crimson Depths',
+      category: 'customThemes',
+      swatchColor: '217 91% 60%',
+      light: { '--background': '210 100% 98%', '--foreground': '215 30% 18%', '--card': '210 50% 94%', '--card-foreground': '215 30% 18%', '--popover': '210 50% 94%', '--popover-foreground': '215 30% 18%', '--primary': '0 60% 55%', '--primary-foreground': '0 0% 100%', '--secondary': '180 60% 45%', '--secondary-foreground': '0 0% 100%', '--muted': '210 20% 90%', '--muted-foreground': '210 20% 40%', '--accent': '30 95% 50%', '--accent-foreground': '0 0% 100%', '--destructive': '350 70% 50%', '--destructive-foreground': '0 0% 100%', '--border': '210 20% 85%', '--input': '210 20% 85%', '--ring': '0 60% 55%', },
+      dark: { '--background': '202 100% 14%', '--foreground': '210 40% 98%', '--card': '202 100% 14%', '--card-foreground': '210 40% 98%', '--popover': '202 100% 14%', '--popover-foreground': '210 40% 98%', '--primary': '0 69% 50%', '--primary-foreground': '0 0% 100%', '--secondary': '180 100% 25%', '--secondary-foreground': '0 0% 100%', '--muted': '202 50% 25%', '--muted-foreground': '210 40% 70%', '--accent': '31 100% 49%', '--accent-foreground': '0 0% 100%', '--destructive': '0 70% 50%', '--destructive-foreground': '0 0% 100%', '--border': '180 50% 30%', '--input': '180 50% 30%', '--ring': '0 69% 50%', },
+    },
+    {
+      name: 'Default Theme Reborn',
+      category: 'customThemes',
+      swatchColor: '145 63% 49%',
+      light: { '--background': '135 100% 97%', '--foreground': '240 10% 3.9%', '--card': '0 0% 100%', '--card-foreground': '240 10% 3.9%', '--popover': '0 0% 100%', '--popover-foreground': '240 10% 3.9%', '--primary': '145 63% 49%', '--primary-foreground': '145 50% 98%', '--secondary': '240 4.8% 95.9%', '--secondary-foreground': '240 5.9% 10%', '--muted': '240 4.8% 95.9%', '--muted-foreground': '240 3.8% 46.1%', '--accent': '207 70% 53%', '--accent-foreground': '0 0% 98%', '--destructive': '0 84.2% 60.2%', '--destructive-foreground': '0 0% 98%', '--border': '240 5.9% 90%', '--input': '240 5.9% 90%', '--ring': '145 63% 49%', },
+      dark: { '--background': '240 10% 3.9%', '--foreground': '0 0% 98%', '--card': '240 10% 3.9%', '--card-foreground': '0 0% 98%', '--popover': '240 10% 3.9%', '--popover-foreground': '0 0% 98%', '--primary': '145 63% 49%', '--primary-foreground': '145 50% 98%', '--secondary': '240 3.7% 15.9%', '--secondary-foreground': '0 0% 98%', '--muted': '240 3.7% 15.9%', '--muted-foreground': '240 5% 64.9%', '--accent': '207 70% 53%', '--accent-foreground': '0 0% 98%', '--destructive': '0 62.8% 30.6%', '--destructive-foreground': '0 0% 98%', '--border': '240 3.7% 15.9%', '--input': '240 3.7% 15.9%', '--ring': '145 63% 49%', },
     },
 ];
 
