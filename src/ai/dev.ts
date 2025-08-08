@@ -1,1 +1,21 @@
-// Flows will be imported for their side effects in this file.
+import { config } from 'dotenv';
+config();
+
+import '@/ai/flows/summarize-brief.ts';
+import '@/ai/flows/client-chat-flow.ts';
+import '@/ai/flows/generate-docs-flow.ts';
+import '@/ai/flows/generate-code-flow.ts';
+import '@/ai/flows/get-expertise-flow.ts';
+import '@/ai/flows/emotional-intelligence-flow.ts';
+import '@/ai/flows/track-progress-flow.ts';
+import '@/ai/flows/habit-coach-flow.ts';
+import '@/ai/flows/tax-compliance-flow.ts';
+import '@/ai/flows/reconciliation-flow.ts';
+import '@/ai/flows/dynamic-pricing-flow.ts';
+import '@/ai/flows/personalized-recommendations-flow.ts';
+import '@/ai/flows/treatment-plan-flow.ts';
+import '@/ai/flows/predictive-maintenance-flow.ts';
+import '@/ai/flows/nutrition-assistant-flow.ts';
+import '@/ai/flows/workout-plan-flow.ts';
+import '@/ai/schemas/track-progress-schema';
+import '@/ai/schemas/workout-plan-schema';
