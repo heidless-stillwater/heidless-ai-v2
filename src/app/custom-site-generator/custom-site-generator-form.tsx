@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { debounce } from 'lodash';
 import { getTemplates, type CustomSiteGeneratorOutput } from '@/ai/flows/custom-site-generator-flow';
 import { Button } from '@/components/ui/button';
@@ -14,56 +14,78 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, ExternalLink, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Form, FormField, FormControl } from '@/components/ui/form';
 
 type Template = CustomSiteGeneratorOutput['templates'][0];
 
 export function CustomSiteGeneratorForm() {
     const [templates, setTemplates] = useState<Template[]>([]);
+    const [allTemplates, setAllTemplates] = useState<Template[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedTemplates, setSelectedTemplates] = useState<Set<string>>(new Set());
     const { toast } = useToast();
 
-    const { register, watch, control } = useForm({
+    const form = useForm({
         defaultValues: {
             category: 'all',
             search: '',
         },
     });
 
+    const { register, watch, control } = form;
+
     const categoryFilter = watch('category');
     const searchFilter = watch('search');
 
     const categories = useMemo(() => {
-        const allCategories = templates.map(t => t.category);
+        const allCategories = allTemplates.map(t => t.category);
         return ['all', ...Array.from(new Set(allCategories))];
-    }, [templates]);
+    }, [allTemplates]);
 
-    const fetchTemplates = useCallback(
-        debounce(async (category: string, search: string) => {
-            setIsLoading(true);
-            try {
-                const result = await getTemplates({
-                    categoryPattern: category === 'all' ? undefined : category,
-                    templatePattern: search || undefined,
-                });
-                setTemplates(result.templates);
-            } catch (error) {
-                console.error('Error fetching templates:', error);
-                toast({
-                    title: 'Error',
-                    description: 'Failed to fetch templates. Please try again.',
-                    variant: 'destructive',
-                });
-            } finally {
-                setIsLoading(false);
+    const fetchInitialTemplates = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const result = await getTemplates({});
+            setAllTemplates(result.templates);
+            setTemplates(result.templates);
+        } catch (error) {
+            console.error('Error fetching templates:', error);
+            toast({
+                title: 'Error',
+                description: 'Failed to fetch templates. Please try again.',
+                variant: 'destructive',
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    }, [toast]);
+
+    useEffect(() => {
+        fetchInitialTemplates();
+    }, [fetchInitialTemplates]);
+
+
+    const debouncedFilter = useCallback(
+        debounce((category: string, search: string) => {
+            let filtered = allTemplates;
+
+            if (category && category !== 'all') {
+                filtered = filtered.filter(t => t.category === category);
             }
+            
+            if (search) {
+                const regex = new RegExp(search, 'i');
+                filtered = filtered.filter(t => regex.test(t.name) || regex.test(t.description));
+            }
+
+            setTemplates(filtered);
         }, 300),
-        []
+        [allTemplates]
     );
 
     useEffect(() => {
-        fetchTemplates(categoryFilter, searchFilter);
-    }, [categoryFilter, searchFilter, fetchTemplates]);
+        debouncedFilter(categoryFilter, searchFilter);
+    }, [categoryFilter, searchFilter, debouncedFilter]);
 
     const handleSelectTemplate = (templateName: string, isSelected: boolean) => {
         const newSelection = new Set(selectedTemplates);
@@ -91,18 +113,27 @@ export function CustomSiteGeneratorForm() {
                     <CardDescription>Filter and select templates to get started.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Select onValueChange={(value) => control._formValues.category = value} defaultValue="all">
-                            <SelectTrigger><SelectValue placeholder="Filter by category..." /></SelectTrigger>
-                            <SelectContent>
-                                {categories.map(cat => (
-                                    <SelectItem key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <Input placeholder="Search by name..." {...register('search')} />
-                    </div>
-
+                    <Form {...form}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <FormField
+                                control={control}
+                                name="category"
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger><SelectValue placeholder="Filter by category..." /></SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {categories.map(cat => (
+                                                <SelectItem key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                            <Input placeholder="Search by name or description..." {...register('search')} />
+                        </div>
+                    </Form>
                     {selectedTemplates.size > 0 && (
                         <div className="space-y-2 pt-4">
                              <div className="flex flex-wrap items-center gap-2">
@@ -162,6 +193,11 @@ export function CustomSiteGeneratorForm() {
                             </CardFooter>
                         </Card>
                     ))}
+                </div>
+            )}
+            {templates.length === 0 && !isLoading && (
+                <div className="text-center py-12">
+                    <p className="text-muted-foreground">No templates found matching your criteria.</p>
                 </div>
             )}
         </div>

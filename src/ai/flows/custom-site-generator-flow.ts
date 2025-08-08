@@ -64,19 +64,10 @@ const customSiteGeneratorFlow = ai.defineFlow(
     outputSchema: CustomSiteGeneratorOutputSchema,
   },
   async (input) => {
-    let filteredTemplates = allTemplates;
-
-    if (input.categoryPattern && input.categoryPattern !== 'all') {
-        filteredTemplates = filteredTemplates.filter(t => t.category === input.categoryPattern);
-    }
-    
-    if (input.templatePattern) {
-        const regex = new RegExp(input.templatePattern, 'i');
-        filteredTemplates = filteredTemplates.filter(t => regex.test(t.name));
-    }
-
+    // Note: The filtering logic has been moved to the client-side
+    // This flow now returns all templates
     return {
-      templates: filteredTemplates,
+      templates: allTemplates,
     };
   }
 );
