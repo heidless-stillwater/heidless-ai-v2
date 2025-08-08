@@ -6,28 +6,11 @@
  * - CustomSiteGeneratorInput - The input type for the getTemplates function.
  * - CustomSiteGeneratorOutput - The return type for the getTemplates function.
  */
-
 import { z } from 'zod';
 import { ai } from '@/ai/genkit';
+import { CustomSiteGeneratorInputSchema, CustomSiteGeneratorOutputSchema, type CustomSiteGeneratorInput, type CustomSiteGeneratorOutput, TemplateSchema } from '@/ai/schemas/custom-site-generator-schema';
 
-const TemplateSchema = z.object({
-  name: z.string(),
-  category: z.string(),
-  url: z.string().url(),
-  description: z.string(),
-  thumbnailUrl: z.string().url(),
-});
-
-export const CustomSiteGeneratorInputSchema = z.object({
-  categoryPattern: z.string().optional(),
-  templatePattern: z.string().optional(),
-});
-export type CustomSiteGeneratorInput = z.infer<typeof CustomSiteGeneratorInputSchema>;
-
-export const CustomSiteGeneratorOutputSchema = z.object({
-  templates: z.array(TemplateSchema),
-});
-export type CustomSiteGeneratorOutput = z.infer<typeof CustomSiteGeneratorOutputSchema>;
+export type { CustomSiteGeneratorInput, CustomSiteGeneratorOutput };
 
 const allTemplates: z.infer<typeof TemplateSchema>[] = [
   {

@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { debounce } from 'lodash';
-import { getTemplates, CustomSiteGeneratorOutput } from '@/ai/flows/custom-site-generator-flow';
+import { getTemplates, type CustomSiteGeneratorOutput } from '@/ai/flows/custom-site-generator-flow';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
